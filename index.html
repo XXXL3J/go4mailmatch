@@ -3,16 +3,16 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
-  <title>Go4MailMatch - Pre-registration </title>
+  <title>Go4MailMatch - Pre-registration</title>
   <meta name="description" content="Pre-register Go4MailMatch from your .edu email. When the first 100 verified students join, the product goes live and founding members get first access." />
   <meta property="og:title" content="Go4MailMatch - Unlock Launch with the First 100 Students" />
   <meta property="og:description" content="Join the founding wave with your .edu email. The first 100 verified pre-registrations unlock launch access, early invites, and day-one matching." />
-  <meta name="theme-color" content="#F7F2FF" />
+  <meta name="theme-color" content="#F5F4F1" />
   <meta name="apple-mobile-web-app-capable" content="yes" />
   <meta name="apple-mobile-web-app-status-bar-style" content="default" />
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-  <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@500;700;800&family=Space+Grotesk:wght@500;700&display=swap" rel="stylesheet" />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet" />
   <script src="https://cdn.tailwindcss.com"></script>
   <style>
     html {
@@ -27,12 +27,9 @@
       height: 100svh;
       height: -webkit-fill-available;
       overflow: hidden;
-      font-family: 'Manrope', 'Segoe UI', sans-serif;
-      background:
-        radial-gradient(ellipse 90% 55% at 15% 5%, rgba(255, 180, 185, 0.55) 0%, transparent 60%),
-        radial-gradient(ellipse 70% 45% at 82% 25%, rgba(195, 178, 252, 0.5) 0%, transparent 55%),
-        radial-gradient(ellipse 75% 55% at 45% 100%, rgba(160, 240, 200, 0.4) 0%, transparent 60%),
-        #f7f2ff;
+      font-family: 'Inter', 'Segoe UI', sans-serif;
+      background: #F5F4F1;
+      color: #111;
     }
 
     * {
@@ -45,31 +42,32 @@
       user-select: none;
     }
 
-    .display-font {
-      font-family: 'Space Grotesk', 'Segoe UI', sans-serif;
-    }
-
     .card {
-      background: rgba(255, 255, 255, 0.88);
-      border-radius: 18px;
-      box-shadow: 0 1px 3px rgba(80, 40, 120, 0.08), 0 0 0 1px rgba(180, 140, 255, 0.12);
-      backdrop-filter: blur(8px);
-      -webkit-backdrop-filter: blur(8px);
+      background: #fff;
+      border-radius: 14px;
+      border: 1px solid #E8E6E1;
     }
 
     .status-pill {
       display: inline-flex;
       align-items: center;
-      gap: 8px;
+      gap: 6px;
       border-radius: 999px;
-      padding: 8px 12px;
+      padding: 5px 11px;
       font-size: 11px;
-      font-weight: 700;
-      letter-spacing: 0.12em;
-      text-transform: uppercase;
-      color: #7c3aed;
-      background: linear-gradient(135deg, rgba(244, 114, 182, 0.18), rgba(129, 140, 248, 0.16));
-      border: 1px solid rgba(139, 92, 246, 0.18);
+      font-weight: 600;
+      color: #555;
+      background: #EBEBEB;
+      border: 1px solid #DDDBD7;
+    }
+
+    .status-pill::before {
+      content: '';
+      width: 6px;
+      height: 6px;
+      border-radius: 50%;
+      background: #2C9E62;
+      flex-shrink: 0;
     }
 
     .page-scroll {
@@ -78,159 +76,190 @@
 
     .progress-shell {
       position: relative;
-      overflow: hidden;
-      height: 12px;
+      height: 6px;
       border-radius: 999px;
-      background: rgba(216, 202, 255, 0.42);
+      background: #E8E6E1;
     }
 
     .progress-fill {
-      position: relative;
       height: 100%;
       width: 0;
       border-radius: inherit;
-      background: linear-gradient(135deg, #f43f5e 0%, #8b5cf6 55%, #06b6d4 100%);
-      box-shadow: 0 8px 18px rgba(139, 92, 246, 0.26);
+      background: #111;
       transition: width 0.18s linear;
     }
 
-    .progress-fill::after {
-      content: '';
-      position: absolute;
-      inset: 0;
-      transform: translateX(-100%);
-      background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.48), transparent);
-      animation: shimmer 2.3s linear infinite;
-    }
-
     .tracker-stat {
-      border-radius: 14px;
+      border-radius: 10px;
       padding: 12px;
-      background: rgba(255, 255, 255, 0.72);
-      border: 1px solid rgba(167, 139, 250, 0.12);
+      background: #F5F4F1;
     }
 
     .btn-submit {
-      transition: opacity 0.12s ease, transform 0.12s ease;
+      transition: filter 0.15s ease, transform 0.15s ease;
     }
 
     .btn-submit:active {
-      opacity: 0.82;
-      transform: scale(0.985);
+      filter: brightness(0.88);
+      transform: scale(0.975);
     }
 
-    @keyframes shimmer {
-      100% {
-        transform: translateX(100%);
-      }
+    .step-icon {
+      width: 32px;
+      height: 32px;
+      border-radius: 8px;
+      background: #F5F4F1;
+      border: 1px solid #E0DDD8;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      flex-shrink: 0;
     }
 
+    .step-title {
+      font-size: 14px;
+      font-weight: 600;
+      color: #111;
+      line-height: 1.3;
+    }
+
+    .step-desc {
+      font-size: 12px;
+      color: #888;
+      margin-top: 2px;
+      line-height: 1.5;
+    }
   </style>
 </head>
 
-<body class="text-slate-900 antialiased flex flex-col">
-  <div class="hidden md:flex h-screen flex-col items-center justify-center px-8 text-center" style="background:#F7F4EF">
-    <div class="card w-full max-w-md px-10 py-10 flex flex-col items-center">
-      <p class="display-font text-sm font-bold uppercase tracking-[0.28em]" style="color:#7C3AED">Go4MailMatch</p>
-      <div class="mt-8 rounded-[28px] p-4" style="background:#fff;border:1px solid rgba(139,92,246,.14)">
-        <img src="https://api.qrserver.com/v1/create-qr-code/?size=180x180&margin=0&format=svg&data=https%3A%2F%2Fxxxl3j.github.io%2Fgo4mailmatch%2F" alt="QR code to open Go4MailMatch on your phone" width="180" height="180" class="block rounded-[20px]" />
+<body class="antialiased flex flex-col">
+  <div class="hidden md:flex h-screen flex-col items-center justify-center px-8 text-center" style="background:#F5F4F1">
+    <div class="card w-full max-w-sm px-10 py-10 flex flex-col items-center">
+      <p class="text-sm font-semibold tracking-wide" style="color:#111">Go4MailMatch</p>
+      <div class="mt-7 rounded-2xl p-3" style="background:#F5F4F1;border:1px solid #E8E6E1">
+        <img src="https://api.qrserver.com/v1/create-qr-code/?size=180x180&margin=0&format=svg&data=https%3A%2F%2Fxxxl3j.github.io%2Fgo4mailmatch%2F" alt="QR code to open Go4MailMatch on your phone" width="180" height="180" class="block rounded-xl" />
       </div>
-      <h1 class="display-font mt-6 text-3xl font-bold leading-tight" style="color:#1F1738">Scan on your phone.</h1>
-      <p class="mt-3 text-sm leading-6" style="color:#6F648B">
+      <h1 class="mt-6 text-2xl font-bold leading-snug" style="color:#111">Scan on your phone.</h1>
+      <p class="mt-2 text-sm leading-6" style="color:#888">
         This page is mobile-first. Open the same link on your phone to continue.
       </p>
-      
     </div>
   </div>
 
-  <header class="md:hidden flex-shrink-0 flex items-center justify-between px-5" style="height:56px">
-    <span class="display-font font-bold tracking-tight" style="font-size:18px;background:linear-gradient(135deg,#F472B6,#818CF8);-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text">Go4MailMatch</span>
-    <span class="font-semibold rounded-full px-3 py-[6px]" style="font-size:11px;background:linear-gradient(135deg,rgba(244,114,182,.15),rgba(129,140,248,.15));color:#7C3AED;border:1px solid rgba(139,92,246,.2)">.edu email only</span>
+  <header class="md:hidden flex-shrink-0 flex items-center justify-between px-5" style="height:52px">
+    <span class="font-bold tracking-tight" style="font-size:17px;color:#111">Go4MailMatch</span>
+    <span class="font-medium rounded-full px-3 py-[5px]" style="font-size:11px;background:#EBEBEB;color:#555;border:1px solid #DDDBD7">.edu only</span>
   </header>
 
-  <main class="page-scroll md:hidden flex-1 flex flex-col overflow-y-auto px-4 min-h-0" style="padding-top:8px;padding-bottom:108px;gap:14px">
-    <section id="hero-block" class="relative">
+  <main class="page-scroll md:hidden flex-1 flex flex-col overflow-y-auto px-4 min-h-0" style="padding-top:8px;padding-bottom:108px;gap:12px">
+    <section id="hero-block">
       <span class="status-pill">Pre-registration open</span>
-      <div class="card relative overflow-hidden mt-3 px-5 py-8">
-        <div aria-hidden="true" class="absolute -top-10 -right-10 w-32 h-32 rounded-full" style="background:radial-gradient(circle, rgba(129,140,248,.16), rgba(129,140,248,0))"></div>
-        <p class="text-[11px] font-bold uppercase tracking-[0.24em]" style="color:#A07ED6">.edu only</p>
-        <h1 class="display-font mt-2 leading-[1.02] tracking-tight" style="font-size:clamp(29px,9vw,40px);letter-spacing:-.04em;background:linear-gradient(135deg,#F43F5E 0%,#8B5CF6 60%,#06B6D4 100%);-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text">
-          Launch unlocks at 100 .edu signups.
+      <div class="card mt-3 px-5 py-5">
+        <h1 class="font-bold leading-tight tracking-tight" style="font-size:clamp(22px,7vw,34px);color:#111">
+          Launch unlocks at<br>100 .edu signups.
         </h1>
-        <div class="mt-4 flex flex-wrap gap-2">
-          <span class="rounded-full px-3 py-1.5" style="font-size:11px;font-weight:700;background:rgba(255,255,255,.82);color:#43345E;border:1px solid rgba(139,92,246,.1)">Verified .edu only</span>
-          <span class="rounded-full px-3 py-1.5" style="font-size:11px;font-weight:700;background:rgba(255,255,255,.82);color:#43345E;border:1px solid rgba(139,92,246,.1)">No password required</span>
+        <div class="mt-4" style="display:flex;flex-direction:column;gap:12px">
+          <div style="display:flex;gap:12px;align-items:center">
+            <div class="step-icon">
+              <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="#555" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/><line x1="16" y1="13" x2="8" y2="13"/><line x1="16" y1="17" x2="8" y2="17"/><line x1="10" y1="9" x2="8" y2="9"/></svg>
+            </div>
+            <div>
+              <p class="step-title">Fill out a questionnaire</p>
+              <p class="step-desc">~10 min &middot; values, lifestyle, what you want.</p>
+            </div>
+          </div>
+          <div style="display:flex;gap:12px;align-items:center">
+            <div class="step-icon">
+              <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="#555" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg>
+            </div>
+            <div>
+              <p class="step-title">Confirm with .edu email</p>
+              <p class="step-desc">No password, no profile.</p>
+            </div>
+          </div>
+          <div style="display:flex;gap:12px;align-items:center">
+            <div class="step-icon">
+              <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="#555" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="3" width="18" height="18" rx="2" ry="2"/><polyline points="9 11 12 14 22 4"/></svg>
+            </div>
+            <div>
+              <p class="step-title">Receive a match envelope</p>
+              <p class="step-desc">Nickname &middot; score &middot; why you'd get along.</p>
+            </div>
+          </div>
+          <div style="display:flex;gap:12px;align-items:center">
+            <div class="step-icon">
+              <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="#555" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/></svg>
+            </div>
+            <div>
+              <p class="step-title">Choose to reach out</p>
+              <p class="step-desc">Exchange emails. The rest is up to you.</p>
+            </div>
+          </div>
         </div>
       </div>
     </section>
 
-    <section id="stats-block" class="card relative overflow-hidden px-4 py-4">
-      <div aria-hidden="true" class="absolute -right-10 bottom-0 h-24 w-24 rounded-full" style="background:radial-gradient(circle, rgba(244,63,94,.14), rgba(244,63,94,0))"></div>
-      <div class="relative flex items-center justify-between gap-3">
-        <div>
-          <p class="text-[11px] font-bold uppercase tracking-[0.24em]" style="color:#A07ED6">Launch tracker</p>
-          <p class="mt-1 text-sm font-semibold leading-5" style="color:#2F2349">Verified .edu pre-registrations</p>
-        </div>
-        <span class="rounded-full px-3 py-1.5 flex-shrink-0" style="font-size:11px;font-weight:800;background:rgba(129,140,248,.12);color:#5B57D3">Goal: 100</span>
+    <section id="stats-block" class="card px-4 py-4">
+      <div class="flex items-center justify-between gap-3">
+        <p class="text-xs font-medium" style="color:#888">Launch tracker</p>
+        <span class="rounded-full px-2.5 py-1 flex-shrink-0" style="font-size:11px;font-weight:600;background:#F5F4F1;color:#555;border:1px solid #E0DDD8">Goal: 100</span>
       </div>
+      <p class="mt-1 text-sm font-medium" style="color:#555">Verified .edu pre-registrations</p>
 
-      <div class="relative mt-4 flex items-end justify-between gap-3">
+      <div class="mt-4 flex items-end justify-between gap-3">
         <div>
-          <p id="count-display" class="display-font font-bold leading-none" style="font-size:33px;background:linear-gradient(135deg,#F43F5E,#8B5CF6);-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text">0 / 100</p>
-          <p id="spots-copy" class="mt-2 text-xs leading-5" style="color:#7E7397">100 spots left before launch.</p>
+          <p id="count-display" class="font-bold leading-none" style="font-size:32px;color:#111">0 / 100</p>
+          <p id="spots-copy" class="mt-1.5 text-xs" style="color:#888">100 spots left before launch.</p>
         </div>
-        <div class="text-center flex-shrink-0 rounded-[16px] px-3 py-3" style="background:rgba(255,255,255,.74);border:1px solid rgba(167,139,250,.12)">
-          <p id="percent-display" class="display-font text-[24px] font-bold leading-none" style="color:#241C3A">0%</p>
-          <p class="mt-1 text-[10px] uppercase tracking-[0.16em]" style="color:#A098B4">filled</p>
+        <div class="text-center flex-shrink-0 rounded-xl px-4 py-3" style="background:#F5F4F1;border:1px solid #E0DDD8">
+          <p id="percent-display" class="text-2xl font-bold leading-none" style="color:#111">0%</p>
+          <p class="mt-1 text-[10px] font-medium uppercase tracking-wider" style="color:#999">filled</p>
         </div>
       </div>
 
-      <div class="relative mt-4 progress-shell" aria-hidden="true">
+      <div class="mt-4 progress-shell" aria-hidden="true">
         <div id="progress-fill" class="progress-fill"></div>
       </div>
 
-      <div class="relative mt-4 grid grid-cols-2 gap-2">
+      <div class="mt-3 grid grid-cols-2 gap-2">
         <div class="tracker-stat">
-          <p class="text-[10px] font-bold uppercase tracking-[0.2em]" style="color:#A07ED6">Filter</p>
-          <p class="mt-2 text-sm font-semibold leading-5" style="color:#2F2349">.edu only</p>
+          <p class="text-[10px] font-medium uppercase tracking-wider" style="color:#999">Filter</p>
+          <p class="mt-1.5 text-sm font-semibold" style="color:#111">.edu only</p>
         </div>
         <div class="tracker-stat">
-          <p class="text-[10px] font-bold uppercase tracking-[0.2em]" style="color:#A07ED6">Launch</p>
-          <p class="mt-2 text-sm font-semibold leading-5" style="color:#2F2349">Opens at 100</p>
+          <p class="text-[10px] font-medium uppercase tracking-wider" style="color:#999">Launch</p>
+          <p class="mt-1.5 text-sm font-semibold" style="color:#111">Opens at 100</p>
         </div>
       </div>
     </section>
 
-    <section id="campus-block" class="card px-4 py-4">
-      <p class="text-[11px] font-bold uppercase tracking-[0.24em]" style="color:#A07ED6">Who is here</p>
-      <p class="mt-3 text-[14px] leading-6" style="color:#6F648B">
-        From <span class="font-mono font-semibold" style="color:#5B57D3">@stanford.edu </span>
-        to <span class="font-mono font-semibold" style="color:#5B57D3">@sjtu.edu.cn</span>,
-        <span class="font-mono font-semibold" style="color:#5B57D3">@nottingham.edu.cn</span> is here too.
+    <!-- <section id="campus-block" class="card px-4 py-4">
+      <p class="text-xs font-medium" style="color:#888">Who is here</p>
+      <p class="mt-2 text-[14px] leading-6" style="color:#555">
+        From <span class="font-mono font-semibold" style="color:#111">@stanford.edu</span>
+        to <span class="font-mono font-semibold" style="color:#111">@sjtu.edu.cn</span>,
+        <span class="font-mono font-semibold" style="color:#111">@nottingham.edu.cn</span> is here too.
       </p>
-    </section>
+    </section> -->
   </main>
 
-  <div class="md:hidden fixed bottom-0 left-0 right-0 px-4 z-20" style="padding-bottom:max(16px,env(safe-area-inset-bottom));padding-top:10px;background:linear-gradient(to top, rgba(247,242,255,1) 60%, rgba(247,242,255,0));pointer-events:none">
+  <div class="md:hidden fixed bottom-0 left-0 right-0 px-4 z-20" style="padding-bottom:max(16px,env(safe-area-inset-bottom));padding-top:12px;background:linear-gradient(to top,#F5F4F1 65%,rgba(245,244,241,0));pointer-events:none">
     <a
       href="mailto:go4mailmatch@163.com?subject=Pre-registration&body=Hi%20Go4MailMatch%2C%0A%0AI%20would%20like%20to%20pre-register."
       role="button"
       aria-label="Open your email app to pre-register"
       title="Opens your email app"
-      class="btn-submit w-full h-12 rounded-2xl font-bold flex items-center justify-center gap-2 no-underline"
-      style="background:linear-gradient(135deg,#F43F5E 0%,#8B5CF6 100%);color:#fff;font-size:15px;pointer-events:auto;box-shadow:0 4px 15px rgba(139,92,246,.35)"
+      class="btn-submit w-full h-13 rounded-xl font-semibold flex items-center justify-center gap-2 no-underline"
+      style="background:linear-gradient(135deg,#FF6B6B 0%,#FF8E53 100%);color:#fff;font-size:15px;pointer-events:auto;height:52px;letter-spacing:0.01em;box-shadow:0 4px 16px rgba(255,107,107,0.35)"
     >
-      Pre-register
-      <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
-        <path d="M5 12h14M12 5l7 7-7 7"/>
-      </svg>
+      Pre-register &rarr;
     </a>
-    <p id="footer-block" class="text-center mt-2" style="font-size:11px;color:#8E84A2;pointer-events:auto">
-      .edu email only for pre-registration.
+    <p id="footer-block" class="text-center mt-2" style="font-size:11px;color:#999;pointer-events:auto">
+      .edu email only for pre-registration. &thinsp;
       <a
         href="mailto:go4mailmatch@163.com?subject=Support%20the%20Build&body=I%20want%20to%20share%20product%20ideas%20or%20help%20build%20the%20product.%0A%0AHow%20I%20can%20help%3A%0A"
-        class="font-semibold no-underline"
-        style="color:#6D54D8"
+        class="font-medium no-underline"
+        style="color:#555"
       >
         Support the build.
       </a>
