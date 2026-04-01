@@ -1,0 +1,297 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
+  <title>Go4MailMatch - Pre-registration </title>
+  <meta name="description" content="Pre-register Go4MailMatch from your .edu email. When the first 100 verified students join, the product goes live and founding members get first access." />
+  <meta property="og:title" content="Go4MailMatch - Unlock Launch with the First 100 Students" />
+  <meta property="og:description" content="Join the founding wave with your .edu email. The first 100 verified pre-registrations unlock launch access, early invites, and day-one matching." />
+  <meta name="theme-color" content="#F7F2FF" />
+  <meta name="apple-mobile-web-app-capable" content="yes" />
+  <meta name="apple-mobile-web-app-status-bar-style" content="default" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@500;700;800&family=Space+Grotesk:wght@500;700&display=swap" rel="stylesheet" />
+  <script src="https://cdn.tailwindcss.com"></script>
+  <style>
+    html {
+      overscroll-behavior: none;
+      -webkit-text-size-adjust: 100%;
+      height: -webkit-fill-available;
+    }
+
+    body {
+      overscroll-behavior: none;
+      touch-action: pan-x pan-y;
+      height: 100svh;
+      height: -webkit-fill-available;
+      overflow: hidden;
+      font-family: 'Manrope', 'Segoe UI', sans-serif;
+      background:
+        radial-gradient(ellipse 90% 55% at 15% 5%, rgba(255, 180, 185, 0.55) 0%, transparent 60%),
+        radial-gradient(ellipse 70% 45% at 82% 25%, rgba(195, 178, 252, 0.5) 0%, transparent 55%),
+        radial-gradient(ellipse 75% 55% at 45% 100%, rgba(160, 240, 200, 0.4) 0%, transparent 60%),
+        #f7f2ff;
+    }
+
+    * {
+      -webkit-tap-highlight-color: transparent;
+      box-sizing: border-box;
+    }
+
+    *:not(input):not(textarea) {
+      -webkit-user-select: none;
+      user-select: none;
+    }
+
+    .display-font {
+      font-family: 'Space Grotesk', 'Segoe UI', sans-serif;
+    }
+
+    .card {
+      background: rgba(255, 255, 255, 0.88);
+      border-radius: 18px;
+      box-shadow: 0 1px 3px rgba(80, 40, 120, 0.08), 0 0 0 1px rgba(180, 140, 255, 0.12);
+      backdrop-filter: blur(8px);
+      -webkit-backdrop-filter: blur(8px);
+    }
+
+    .status-pill {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      border-radius: 999px;
+      padding: 8px 12px;
+      font-size: 11px;
+      font-weight: 700;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      color: #7c3aed;
+      background: linear-gradient(135deg, rgba(244, 114, 182, 0.18), rgba(129, 140, 248, 0.16));
+      border: 1px solid rgba(139, 92, 246, 0.18);
+    }
+
+    .page-scroll {
+      -webkit-overflow-scrolling: touch;
+    }
+
+    .progress-shell {
+      position: relative;
+      overflow: hidden;
+      height: 12px;
+      border-radius: 999px;
+      background: rgba(216, 202, 255, 0.42);
+    }
+
+    .progress-fill {
+      position: relative;
+      height: 100%;
+      width: 0;
+      border-radius: inherit;
+      background: linear-gradient(135deg, #f43f5e 0%, #8b5cf6 55%, #06b6d4 100%);
+      box-shadow: 0 8px 18px rgba(139, 92, 246, 0.26);
+      transition: width 0.18s linear;
+    }
+
+    .progress-fill::after {
+      content: '';
+      position: absolute;
+      inset: 0;
+      transform: translateX(-100%);
+      background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.48), transparent);
+      animation: shimmer 2.3s linear infinite;
+    }
+
+    .tracker-stat {
+      border-radius: 14px;
+      padding: 12px;
+      background: rgba(255, 255, 255, 0.72);
+      border: 1px solid rgba(167, 139, 250, 0.12);
+    }
+
+    .btn-submit {
+      transition: opacity 0.12s ease, transform 0.12s ease;
+    }
+
+    .btn-submit:active {
+      opacity: 0.82;
+      transform: scale(0.985);
+    }
+
+    @keyframes shimmer {
+      100% {
+        transform: translateX(100%);
+      }
+    }
+
+  </style>
+</head>
+
+<body class="text-slate-900 antialiased flex flex-col">
+  <div class="hidden md:flex h-screen flex-col items-center justify-center px-8 text-center" style="background:#F7F4EF">
+    <div class="card w-full max-w-md px-10 py-10 flex flex-col items-center">
+      <p class="display-font text-sm font-bold uppercase tracking-[0.28em]" style="color:#7C3AED">Go4MailMatch</p>
+      <div class="mt-8 rounded-[28px] p-4" style="background:#fff;border:1px solid rgba(139,92,246,.14)">
+        <img id="desktop-qr-image" alt="QR code to open this page on your phone" width="180" height="180" class="block rounded-[20px]" />
+      </div>
+      <h1 class="display-font mt-6 text-3xl font-bold leading-tight" style="color:#1F1738">Scan on your phone.</h1>
+      <p class="mt-3 text-sm leading-6" style="color:#6F648B">
+        This page is mobile-first. Open the same link on your phone to continue.
+      </p>
+      <p id="desktop-link" class="mt-4 text-xs font-semibold break-all" style="color:#9D7FAA"></p>
+    </div>
+  </div>
+
+  <header class="md:hidden flex-shrink-0 flex items-center justify-between px-5" style="height:56px">
+    <span class="display-font font-bold tracking-tight" style="font-size:18px;background:linear-gradient(135deg,#F472B6,#818CF8);-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text">Go4MailMatch</span>
+    <span class="font-semibold rounded-full px-3 py-[6px]" style="font-size:11px;background:linear-gradient(135deg,rgba(244,114,182,.15),rgba(129,140,248,.15));color:#7C3AED;border:1px solid rgba(139,92,246,.2)">.edu email only</span>
+  </header>
+
+  <main class="page-scroll md:hidden flex-1 flex flex-col overflow-y-auto px-4 min-h-0" style="padding-top:8px;padding-bottom:108px;gap:14px">
+    <section id="hero-block" class="relative">
+      <span class="status-pill">Pre-registration open</span>
+      <div class="card relative overflow-hidden mt-3 px-5 py-8">
+        <div aria-hidden="true" class="absolute -top-10 -right-10 w-32 h-32 rounded-full" style="background:radial-gradient(circle, rgba(129,140,248,.16), rgba(129,140,248,0))"></div>
+        <p class="text-[11px] font-bold uppercase tracking-[0.24em]" style="color:#A07ED6">.edu only</p>
+        <h1 class="display-font mt-2 leading-[1.02] tracking-tight" style="font-size:clamp(29px,9vw,40px);letter-spacing:-.04em;background:linear-gradient(135deg,#F43F5E 0%,#8B5CF6 60%,#06B6D4 100%);-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text">
+          Launch unlocks at 100 .edu signups.
+        </h1>
+        <div class="mt-4 flex flex-wrap gap-2">
+          <span class="rounded-full px-3 py-1.5" style="font-size:11px;font-weight:700;background:rgba(255,255,255,.82);color:#43345E;border:1px solid rgba(139,92,246,.1)">Verified .edu only</span>
+          <span class="rounded-full px-3 py-1.5" style="font-size:11px;font-weight:700;background:rgba(255,255,255,.82);color:#43345E;border:1px solid rgba(139,92,246,.1)">No password required</span>
+        </div>
+      </div>
+    </section>
+
+    <section id="stats-block" class="card relative overflow-hidden px-4 py-4">
+      <div aria-hidden="true" class="absolute -right-10 bottom-0 h-24 w-24 rounded-full" style="background:radial-gradient(circle, rgba(244,63,94,.14), rgba(244,63,94,0))"></div>
+      <div class="relative flex items-center justify-between gap-3">
+        <div>
+          <p class="text-[11px] font-bold uppercase tracking-[0.24em]" style="color:#A07ED6">Launch tracker</p>
+          <p class="mt-1 text-sm font-semibold leading-5" style="color:#2F2349">Verified .edu pre-registrations</p>
+        </div>
+        <span class="rounded-full px-3 py-1.5 flex-shrink-0" style="font-size:11px;font-weight:800;background:rgba(129,140,248,.12);color:#5B57D3">Goal: 100</span>
+      </div>
+
+      <div class="relative mt-4 flex items-end justify-between gap-3">
+        <div>
+          <p id="count-display" class="display-font font-bold leading-none" style="font-size:33px;background:linear-gradient(135deg,#F43F5E,#8B5CF6);-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text">0 / 100</p>
+          <p id="spots-copy" class="mt-2 text-xs leading-5" style="color:#7E7397">100 spots left before launch.</p>
+        </div>
+        <div class="text-center flex-shrink-0 rounded-[16px] px-3 py-3" style="background:rgba(255,255,255,.74);border:1px solid rgba(167,139,250,.12)">
+          <p id="percent-display" class="display-font text-[24px] font-bold leading-none" style="color:#241C3A">0%</p>
+          <p class="mt-1 text-[10px] uppercase tracking-[0.16em]" style="color:#A098B4">filled</p>
+        </div>
+      </div>
+
+      <div class="relative mt-4 progress-shell" aria-hidden="true">
+        <div id="progress-fill" class="progress-fill"></div>
+      </div>
+
+      <div class="relative mt-4 grid grid-cols-2 gap-2">
+        <div class="tracker-stat">
+          <p class="text-[10px] font-bold uppercase tracking-[0.2em]" style="color:#A07ED6">Filter</p>
+          <p class="mt-2 text-sm font-semibold leading-5" style="color:#2F2349">.edu only</p>
+        </div>
+        <div class="tracker-stat">
+          <p class="text-[10px] font-bold uppercase tracking-[0.2em]" style="color:#A07ED6">Launch</p>
+          <p class="mt-2 text-sm font-semibold leading-5" style="color:#2F2349">Opens at 100</p>
+        </div>
+      </div>
+    </section>
+
+    <section id="campus-block" class="card px-4 py-4">
+      <p class="text-[11px] font-bold uppercase tracking-[0.24em]" style="color:#A07ED6">Who is here</p>
+      <p class="mt-3 text-[14px] leading-6" style="color:#6F648B">
+        From <span class="font-mono font-semibold" style="color:#5B57D3">@stanford.edu </span>
+        to <span class="font-mono font-semibold" style="color:#5B57D3">@sjtu.edu.cn</span>,
+        <span class="font-mono font-semibold" style="color:#5B57D3">@nottingham.edu.cn</span> is here too.
+      </p>
+    </section>
+  </main>
+
+  <div class="md:hidden fixed bottom-0 left-0 right-0 px-4 z-20" style="padding-bottom:max(16px,env(safe-area-inset-bottom));padding-top:10px;background:linear-gradient(to top, rgba(247,242,255,1) 60%, rgba(247,242,255,0));pointer-events:none">
+    <a
+      href="mailto:go4mailmatch@163.com?subject=Pre-registration&body=Hi%20Go4MailMatch%2C%0A%0AI%20would%20like%20to%20pre-register."
+      role="button"
+      aria-label="Open your email app to pre-register"
+      title="Opens your email app"
+      class="btn-submit w-full h-12 rounded-2xl font-bold flex items-center justify-center gap-2 no-underline"
+      style="background:linear-gradient(135deg,#F43F5E 0%,#8B5CF6 100%);color:#fff;font-size:15px;pointer-events:auto;box-shadow:0 4px 15px rgba(139,92,246,.35)"
+    >
+      Pre-register
+      <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+        <path d="M5 12h14M12 5l7 7-7 7"/>
+      </svg>
+    </a>
+    <p id="footer-block" class="text-center mt-2" style="font-size:11px;color:#8E84A2;pointer-events:auto">
+      .edu email only for pre-registration.
+      <a
+        href="mailto:go4mailmatch@163.com?subject=Support%20the%20Build&body=I%20want%20to%20share%20product%20ideas%20or%20help%20build%20the%20product.%0A%0AHow%20I%20can%20help%3A%0A"
+        class="font-semibold no-underline"
+        style="color:#6D54D8"
+      >
+        Support the build.
+      </a>
+    </p>
+  </div>
+
+  <script>
+    (function () {
+      var launchGoal = 100
+      var launchCount = 43
+      var desktopQrImage = document.getElementById('desktop-qr-image')
+      var desktopLink = document.getElementById('desktop-link')
+      var countDisplay = document.getElementById('count-display')
+      var percentDisplay = document.getElementById('percent-display')
+      var spotsCopy = document.getElementById('spots-copy')
+      var progressFill = document.getElementById('progress-fill')
+
+      if (desktopQrImage && desktopLink) {
+        if (/^https?:/i.test(window.location.href)) {
+          desktopQrImage.src = 'https://api.qrserver.com/v1/create-qr-code/?size=180x180&margin=0&data=' + encodeURIComponent(window.location.href)
+          desktopLink.textContent = window.location.href
+        } else {
+          desktopQrImage.style.display = 'none'
+          desktopLink.textContent = 'Open the shared page link on your phone.'
+        }
+      }
+
+      if (!countDisplay || !percentDisplay || !spotsCopy || !progressFill) {
+        return
+      }
+
+      function render(value) {
+        var percent = Math.round((value / launchGoal) * 100)
+        var remaining = Math.max(launchGoal - value, 0)
+
+        countDisplay.textContent = value + ' / ' + launchGoal
+        percentDisplay.textContent = percent + '%'
+        spotsCopy.textContent = remaining + ' spots left before launch.'
+        progressFill.style.width = percent + '%'
+      }
+
+      function animateCounter(timestamp) {
+        if (!animateCounter.startTime) {
+          animateCounter.startTime = timestamp
+        }
+
+        var elapsed = timestamp - animateCounter.startTime
+        var progress = Math.min(elapsed / 1400, 1)
+        var eased = 1 - Math.pow(1 - progress, 3)
+        var currentValue = Math.round(launchCount * eased)
+
+        render(currentValue)
+
+        if (progress < 1) {
+          window.requestAnimationFrame(animateCounter)
+        }
+      }
+
+      render(0)
+      window.requestAnimationFrame(animateCounter)
+    })()
+  </script>
+</body>
+</html>
